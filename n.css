@@ -1,0 +1,39 @@
+.full-page
+{
+    height: 100%;
+	width: 100%;
+	background-image: linear-gradient(rgba(0,0,0,0.1)30%,rgba(0,0,0,0.1)30%),url(nat1.gif);
+	background-position: absolute;
+	background-size: cover;
+	position: absolute;
+       background-color: white;
+}
+
+.card-heading{
+text-align: center;
+color: indigo;
+}
+.card-heading1{
+text-align: center;
+color: orangered;
+}
+.card-title{
+text-align: center;
+font-size: 35px;
+color: white;
+}
+.card bg-secondary{
+flex:1;
+align: right;
+}
+.h1{
+text-align: center;
+color: white;
+}
+
+.div{
+ display: flex;
+    align-items: center;
+    justify-content:center;
+	 
+}

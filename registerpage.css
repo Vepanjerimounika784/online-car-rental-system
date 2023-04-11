@@ -1,0 +1,29 @@
+
+
+.color
+{
+    height: 100%;
+	width: 100%;
+	background-image: linear-gradient(rgba(0,0,0,0.2)30%,rgba(0,0,0,0.2)30%),url(my.jpg);
+	background-position: absolute;
+	background-size: cover;
+	position: absolute;
+}
+
+.box{
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+}
+#reg{
+    width: 100px;
+    height: 40px;
+    background-color: darkgreen;
+    border-radius: 10px;
+}
+#log{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(248, 232, 0);
+    border-radius: 10px;
+}

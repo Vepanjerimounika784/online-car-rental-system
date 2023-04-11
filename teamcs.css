@@ -1,0 +1,46 @@
+.card {
+    max-width: 300px;
+    padding-left: 50px;
+    padding-right:50px;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+    background-color: black;
+    margin-top: 90px;
+    float: left;
+    margin-left:450px;
+    margin-bottom: 10px;
+    background-color: black;
+     background: rgba(0, 0, 0, 0.5);
+     color: orange;
+     margin-top:5%;
+}
+img {
+    width: 50%;
+    border: 5px solid #e1e1e1;
+    border-radius: 100px;
+}
+table, table tr td {
+    width: 290px;
+    margin: 0 auto;
+    border: 2px solid black;
+    text-align: left;
+    color: white;
+}
+.button{
+    width: 10%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    background: #C3BAC1;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 50%;
+    position: relative;
+}
+.btn{
+background:white;
+}

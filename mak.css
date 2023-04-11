@@ -1,0 +1,10 @@
+.color
+{
+    height: 100%;
+	width: 100%;
+	background-image: linear-gradient(rgba(0,0,0,0.2)30%,rgba(0,0,0,0.2)30%),url(solid.jpeg);
+	background-position: absolute;
+	background-size: cover;
+	position: absolute;
+}
+

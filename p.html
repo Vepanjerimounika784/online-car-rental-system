@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WONDERS OF THE WORLD</title>
+    
+</head>
+    <body style="background-color:lightcyan;">
+    <h1 style="text-align:center;color:indigo">WONDERS OF THE WORLD</h1>
+<form action="wonders1.html" id="form"><br>
+<label>EMAIL:</label>
+<input type="text" name="mail" id="email"><br><br>
+<span id="merror"></span><br><br>
+<label>PASSWORD:</label>
+<input type="password" name="pswd" id="pd"><br>
+<span id="perror"></span><br><br>
+<input type="checkbox" name="checked" id="check">
+<label> I accept the <u>Terms and Conditions.</u></label><br>
+<span id="checkerror"></span><br><br>
+<button type="submit">SUBMIT</button>
+<br><br>
+</form>
+    <script>
+        let form=document.getElementById('form');
+        let upass=document.getElementById('pd');
+        let umail=document.getElementById('email');
+        let ucheck=document.getElementById('check');
+
+        let perror2=document.getElementById('perror');
+        let merror2=document.getElementById('merror');
+        let checkerror2=document.getElementById('checkerror');
+
+        form.addEventListener("submit",event=>{event.preventDefault();validate();})
+        function validate(){
+            let psd=upass.value.trim();
+            let em=umail.value.trim();
+
+           
+           if(psd===""||psd==null){
+                perror2.innerText="password cant be empty";
+            }
+            else if(!(psd.match(/[a-z]+[A-Z]+[0-9]+/) || (/[A-Z]+[a-z]+[0-9]/))){
+                perror2.innerText="must use aleast one capital,small,digit";
+            }
+            else if(!psd.match(/[#_@$^%]/)){
+                perror2.innerText="contain atleast one special character";
+            }
+            else if(em===""||em==null){
+                merror2.innerText="email cant be empty";
+            }
+            else if(!(em.match(/^[a-zA-Z0-9_/.-]+@[a-zA-Z0-9_-]+(?:\.[a-z]{2,6})$/))){
+                merror2.innerText="invalid mail";
+            }
+            else if(ucheck.checked === false){
+                checkerror2.innerText="Please accept the terms and conditions";
+            }
+            else{
+       	        form.submit();
+       	    }
+        } 
+        }     
+    </script>
+    
+</body>
+</html>

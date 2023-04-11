@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration</title>
+<link rel="stylesheet" type="text/css" href="registerpage.css">
+</head>
+<body class="color">
+
+ <h2 align="center">WELCOME TO ONLINE CAR RENTAL SYSYTEM </h2><br>
+    <form id="form" action="registration_logged.php" method="post"><fieldset>
+        <center>
+            <legend>
+
+
+                <b>Please Enter Your Details</b>
+            </legend>
+           
+
+        <br>
+
+            <label>Enter Name  :</label>
+            <input type="text" id="username" placeholder="name" name="uuser" class="box">
+                <span id="uname" style="color: red;"></span>
+        
+        <br>
+        <br>
+        <br>
+            <lable> Enter Phone number :</lable>
+            <input type="tel" id="phone" placeholder="Phone Number" name="umobile" class="box">
+            <span id="phonenum" style="color: red;"></span>
+            <br><br><br>
+
+            <label>Enter Email : </label>
+            <input type="email" id="mail" placeholder="Email-Id" name="uemail" class="box">
+
+            <span id="email" style="color: red;"></span><br><br><br>
+
+            <label>Enter password:</label>
+            <input 
+                type="password" 
+                id="password" 
+                placeholder="Password" name="upassword" class="box">
+                <span id="psd" style="color: red;"></span>
+        <br>
+        <br>
+        <br>
+
+            <label>Enter Confirm password :</label>
+            <input 
+                type="password"
+                id="cpassword" 
+                placeholder="confirm password" name="ucpassword" class="box">
+                <span id="cpsd" style="color: red;"></span>
+        
+
+        <br>
+        <br>
+        <br>
+       <input type="submit" value="Register" id="reg" >
+        <a href="loginpage.html"><button type="button" id="log">Login</button></a>
+</center></b></fieldset>
+    </form>
+
+
+
+<script>
+         let form=document.getElementById('form');
+         form.addEventListener("submit", (event) => {
+        					event.preventDefault();
+       						 validate();
+      });
+
+      function validate(){
+        let name = document.getElementById("username").value.trim();
+        let phonenumber=document.getElementById("phone").value.trim();
+        let emailid=document.getElementById("mail").value.trim();
+        let password = document.getElementById("password").value.trim();
+        let cpassword = document.getElementById("cpassword").value.trim();
+       
+
+        let nameValid=true;
+        let phonenumberValid=true;
+        let emailidValid=true;
+        let passwordValid=true;
+
+        //span
+        let nameres=document.getElementById('uname');
+        let uphone=document.getElementById('phonenum');
+        let umail=document.getElementById('email');
+        let upassword=document.getElementById('psd');
+        let cpd=document.getElementById('cpsd');
+       
+
+
+
+        //name validation
+        if(name==""){
+            nameres.innerText="Name can't be empty";
+            nameValid=false;
+        }
+        else if(name.length<3){
+            nameres.innerText="atleast name shoud contain 3 letters";
+            nameValid=false;
+        }
+        else if(!name.match(/[a-zA-Z]/)){
+            nameres.innerText="Please Enter only name not digits and Special Characters";
+            nameValid=false;
+        }
+        else if(name.match(/[0-9]/)){
+            nameres.innerText="Don't Enter Numbers";
+            nameValid=false;
+        }
+        else{
+            nameres.innerText="";
+        }
+
+
+        //Phone number validation
+        if(phonenumber==""){
+            uphone.innerText="Phone number can't be empty";
+            phonenumberValid=false;
+        }
+        else if(phonenumber.match(/[a-zA-Z]/)){
+            uphone.innerText="Please Enter Only Digits not Alphabets";
+            phonenumberValid=false;
+        }
+        else if(phonenumber.length<10){
+            uphone.innerText="Phone number must be 10 digits";
+            phonenumberValid=false;
+        }
+        else if(phonenumber.length>10){
+            uphone.innerText="Phone number must be 10 digits";
+            phonenumberValid=false;
+        }
+        else if(!phoneCheck(phonenumber)){
+            uphone.innerText="Phone number must be started with 6-9 digits";
+            phonenumberValid=false;
+        }
+        else{
+            uphone.innerText="";
+        }
+
+
+        //email validation
+
+        if(emailid==""){
+            umail.innerText="Email can't be empty";
+            emailidValid=false;
+        }
+        else if(!emailCheck(emailid)){
+            umail.innerText="Emial must enter in email format";
+            emailidValid=false;
+        }
+        else{
+            umail.innerText="";
+        }
+
+        //password validation
+
+        if(password==""){
+            upassword.innerText="password can't be empty";
+            passwordValid=false;
+        }
+        else if(password.length<8){
+            upassword.innerText="Password should contain atleast 8 characters";
+            passwordValid=false;
+        }
+        else if(!password.match(/[a-z]/)){
+            upassword.innerText="atleat one lower case letter";
+            passwordValid=false;
+        }
+        else if(!password.match(/[A-Z]/)){
+            upassword.innerText="atleat one upper case letter";
+            passwordValid=false;
+        }
+        else if(!password.match(/[0-9]/)){
+            upassword.innerText="atleat one number";
+            passwordValid=false;
+        }
+        else if(!password.match(/[$#@_\.]/)){
+            upassword.innerText="atleat one special character";
+            passwordValid=false;
+        }
+
+        else{
+            upassword.innerText="";
+        }
+
+      
+
+      //confirm password validation
+
+        if(password!=cpassword){
+                
+            cpd.innerText="password not matched";
+            passwordValid=false;
+
+        }
+        if(cpassword==""){
+            cpd.innerText="cannot be empty";
+            passwordValid=false;
+        }
+        if(password==cpassword){
+                cpd.innerText="";
+    
+            }
+
+        if (nameValid && phonenumberValid && emailidValid && passwordValid) {
+          form.submit();
+        }
+
+       function emailCheck(emailid){
+        let emailReg = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+        let valid = emailReg.test(emailid)       
+        return valid
+        }
+    
+        function phoneCheck(phonenumber){
+    	let phoneReg=/^[6-9]{1}[0-9]{9}/;
+    	let valid2 = phoneReg.test(phonenumber)
+    	return valid2
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+body{
+    background-image:url('my.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+.header{
+    width: 99%;
+    height: 9%;
+   /* background-color:#0E3EDA;*/
+   background: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    text-align: center;
+    font-size:45px;
+    font-family: 'Sofia';
+    /*color:burlywood;*/
+    color:white;
+    position: fixed; /* edited*/
+    top:1%;/* edited*/
+    /*text-shadow: 3px 2px rebeccapurple;*/
+}
+P{/* edited*/
+	font-size:45px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+#user{
+    height: 88%;/*Edited*/
+    width:100%; 
+    margin-top: 100px;/* edited*/
+}

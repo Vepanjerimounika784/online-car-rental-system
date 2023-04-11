@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration</title>
+<link rel="stylesheet" type="text/css" href="registerpage1.css">
+</head>
+<body class="color">
+
+ <h2 align="center">WELCOME TO ONLINE CAR RENTAL SYSTEM</h2><br>
+   
+  <form  action="register1.php" method="post" enctype="multipart/form-data"><fieldset>
+        <center>
+            <legend>
+
+
+                <b>Procedure For Booking</b>
+            </legend>
+           
+
+        <br>
+
+            <label>Enter Name  :</label>
+            <input type="text" id="username" placeholder="name" name="uuser" class="box">
+                <span id="uname" style="color: red;"></span>
+        
+        <br>
+        <br>
+        <br>
+            <label> Enter Phone number :</lable>
+            <input type="tel" id="phone" placeholder="Phone Number" name="umobile" class="box">
+            <span id="phonenum" style="color: red;"></span>
+            <br><br><br>
+
+            <label >Enter payment mode: </label>
+            <input type="text" id="umode" placeholder="online/offline" name="umode" class="box">
+
+            <span id="umode" style="color: red;"></span><br><br><br>
+            <label >Car type: </label>
+            <input type="text" id="utype" placeholder="maruthi/suzuki" name="utype" class="box">
+
+            <span id="utype" style="color: red;"></span><br><br><br>
+	    
+         <b> <input type="submit" name="Register" value="Register" id="reg"  >
+        <a href="loginpage.html"><button type="button" id="log">Login</button></a>
+	
+</center></b>
+
+        <br>
+        <br>
+        <br> 
+</fieldset>
+<center>
+<a href="mak.html"><button type="button" id="reg">Confirm</button></a>
+        <a href="remove.html"><button type="button" id="log">cancel</button></a>
+</center>
+    </form>
+
+
+
+<script>
+         let form=document.getElementById('form');
+         form.addEventListener("submit", (event) => {
+        					event.preventDefault();
+       						 validate();
+      });
+
+      function validate(){
+        let name = document.getElementById("username").value.trim();
+        let phonenumber=document.getElementById("phone").value.trim();
+    
+
+        let nameValid=true;
+        let phonenumberValid=true;
+       
+
+        //span
+        let nameres=document.getElementById('uname');
+        let uphone=document.getElementById('phonenum');
+        
+        //name validation
+        if(name==""){
+            nameres.innerText="Name can't be empty";
+            nameValid=false;
+        }
+        else if(name.length<3){
+            nameres.innerText="atleast name shoud contain 3 letters";
+            nameValid=false;
+        }
+        else if(!name.match(/[a-zA-Z]/)){
+            nameres.innerText="Please Enter only name not digits and Special Characters";
+            nameValid=false;
+        }
+        else if(name.match(/[0-9]/)){
+            nameres.innerText="Don't Enter Numbers";
+            nameValid=false;
+        }
+        else{
+            nameres.innerText="";
+        }
+
+
+        //Phone number validation
+        if(phonenumber==""){
+            uphone.innerText="Phone number can't be empty";
+            phonenumberValid=false;
+        }
+        else if(phonenumber.match(/[a-zA-Z]/)){
+            uphone.innerText="Please Enter Only Digits not Alphabets";
+            phonenumberValid=false;
+        }
+        else if(phonenumber.length<10){
+            uphone.innerText="Phone number must be 10 digits";
+            phonenumberValid=false;
+        }
+        else if(phonenumber.length>10){
+            uphone.innerText="Phone number must be 10 digits";
+            phonenumberValid=false;
+        }
+        else if(!phoneCheck(phonenumber)){
+            uphone.innerText="Phone number must be started with 6-9 digits";
+            phonenumberValid=false;
+        }
+        else{
+            uphone.innerText="";
+        }
+
+        function phoneCheck(phonenumber){
+    	let phoneReg=/^[6-9]{1}[0-9]{9}/;
+    	let valid2 = phoneReg.test(phonenumber)
+    	return valid2
+        }
+
+    }
+</script>
+</body>
+</html>
